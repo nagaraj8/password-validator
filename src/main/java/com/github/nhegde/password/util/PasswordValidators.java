@@ -1,6 +1,6 @@
 package com.github.nhegde.password.util;
 
-import com.github.nhegde.password.exception.PasswordValidatorException;
+import com.github.nhegde.password.exception.*;
 import com.github.nhegde.password.util.Strings;
 import org.passay.*;
 
@@ -17,7 +17,7 @@ public class PasswordValidators {
         boolean isContainDigit =  contain(password, EnglishCharacterData.Digit);
         if(!isContainDigit) {
             logger.warning("Password should contain at least one digit!");
-            throw new PasswordValidatorException("Password should contain at least one digit!");
+            throw new PasswordDigitValidatorException("Password should contain at least one digit!");
         }
         return true;
     }
@@ -26,7 +26,7 @@ public class PasswordValidators {
         boolean containUpperCase =  contain(password, EnglishCharacterData.UpperCase);
         if(!containUpperCase) {
             logger.warning("Password should contain at least one uppercase character!");
-            throw new PasswordValidatorException("Password should contain at least one uppercase character!");
+            throw new PasswordUpperCaseValidatorException("Password should contain at least one uppercase character!");
         }
 
         return true;
@@ -36,7 +36,7 @@ public class PasswordValidators {
         boolean containLowerCase =  contain(password,EnglishCharacterData.LowerCase);
         if(!containLowerCase) {
             logger.warning("Password should contain at least one lowercase character!");
-            throw new PasswordValidatorException("Password should contain at least one lowercase character!");
+            throw new PasswordLowerCaseValidatorException("Password should contain at least one lowercase character!");
         }
         return true;
     }
@@ -56,7 +56,7 @@ public class PasswordValidators {
         boolean isEightChars = new PasswordValidator(Collections.singletonList(new LengthRule(8, 30))).validate(new PasswordData(password)).isValid();
         if(!isEightChars) {
             logger.warning("Password Should be at least 8 characters in length!");
-            throw new PasswordValidatorException("Password Should be at least 8 characters in length!");
+            throw new PasswordEightCharsValidatorException("Password Should be at least 8 characters in length!");
         }
         return true;
     }
