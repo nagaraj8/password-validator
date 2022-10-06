@@ -1,31 +1,18 @@
 package com.github.nhegde.password.util;
 
+import com.github.nhegde.password.exception.PasswordValidatorException;
+
 import java.util.Objects;
 
 public class Strings {
 
     public static final String BLANK = "";
 
-    public static boolean isBlank(String string){
-        return string == null || Objects.equals(string.trim(), BLANK);
-    }
-
-
-    public static Character firstChar(String string){
-        if(!isBlank(string)){
-            return string.charAt(0);
-        }else {
-            return null;
+    public static boolean isBlank(String string) throws PasswordValidatorException {
+        if(string == null || Objects.equals(string.trim(), BLANK)) {
+            throw new PasswordValidatorException("Password cannot be null or Empty!");
         }
+        return false;
     }
-
-    public static Character lastChar(String string){
-        if(!isBlank(string)){
-            return string.charAt(string.length() - 1);
-        }else {
-            return null;
-        }
-    }
-
 
 }
