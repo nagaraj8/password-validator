@@ -13,6 +13,7 @@ public class PasswordFeature {
     private static final Logger logger = Logger.getLogger("PasswordFeature.java");
 
     public boolean checkFeatureOne(String password) throws PasswordValidatorException {
+        logger.info("Verifying the feature one");
         boolean containsEightChars = ContainEightCharsValidator.isValid(password);
         boolean containsOneUpperLetterAtLeast = ContainUppercaseValidator.isValid(password);
         boolean containsLowerCaseChars = ContainLowercaseValidator.isValid(password);
@@ -30,6 +31,7 @@ public class PasswordFeature {
     }
 
     public boolean checkFeatureTwo(String password) throws PasswordValidatorException {
+        logger.info("Verifying the feature two");
         return ContainLowercaseValidator.isValid(password);
     }
 
@@ -38,10 +40,6 @@ public class PasswordFeature {
             return checkFeatureOne(password);
         }
         return false;
-    }
-
-    public static void main(String[] args) throws PasswordValidatorException {
-        System.out.println(new PasswordFeature().checkFeature("ugshsjooooO"));
     }
 
 }

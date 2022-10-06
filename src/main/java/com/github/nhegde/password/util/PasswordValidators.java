@@ -42,10 +42,8 @@ public class PasswordValidators {
     }
 
     private static boolean contain(String password, EnglishCharacterData rule) throws PasswordValidatorException {
-        if (Strings.isBlank(password))
-            return false;
-        else
-            return new PasswordValidator(Collections.singletonList(new CharacterRule(rule))).validate(new PasswordData(password)).isValid();
+        Strings.isBlank(password);
+        return new PasswordValidator(Collections.singletonList(new CharacterRule(rule))).validate(new PasswordData(password)).isValid();
     }
 
     public static boolean notContainWhiteSpace(String password) throws PasswordValidatorException {
