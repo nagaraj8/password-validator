@@ -13,3 +13,15 @@ of the rules mentioned does not pass.
 3. Add feature: password is never OK if item 1.d is not true.
 4. Assume Each verification takes 1 second to complete. How would you solve items 2
    and 3 so tests can run faster?
+
+**Solution**
+
+Please follow the below steps to build and run the project. Currently this project is created with Java maven.
+1. Clone/download the project into local.
+2. Import the project to IDE or go to the project directory and build it using `mvn clean install`.
+3. Once the project is built, Run the file PasswordFeatureTest.java which will test and cover most of the scenarios.
+4. In case of anything needs to be tested specifically, please modify `testFeatureWhenPasswordIsValid` test case by giving the password of any type.
+
+Improvements
+-------------
+Design of the project can be handled in a many better different other ways.
